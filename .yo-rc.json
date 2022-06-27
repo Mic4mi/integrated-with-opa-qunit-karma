@@ -17,6 +17,9 @@
     "uimodules": [
       "uimodule"
     ],
-    "setupCompleted": true
+    "setupCompleted": true,
+    "qunittests": [
+      "/model/formatter"
+    ]
   }
 }
