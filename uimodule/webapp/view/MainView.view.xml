@@ -1,5 +1,56 @@
 <mvc:View controllerName="acc.myproject.controller.MainView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
+    <Page id="page" title="Testing my app!">
+        <headerContent>
+            <SearchField id="filterProducts" liveChange=".onFilterProductByName" showSearchButton="false" width="12rem"></SearchField>
+            <Button id="dialogButton" icon="sap-icon://hello-world" press=".onOpenDialog" />
+        </headerContent>
+        <content>
+            <Table id="mainTable" items="{mainModel>/}">
+                <columns>
+                    <Column id="col1">
+                        <Text id="tt1" text="{i18n>Name}" />
+                    </Column>
+                    <Column id="col2">
+                        <Text id="tt2" text="{i18n>Description}" />
+                    </Column>
+                    <Column id="col3">
+                        <Text id="tt3" text="{i18n>ReleaseDate}" />
+                    </Column>
+                    <Column id="col4" hAlign="End">
+                        <Text id="tt4" text="{i18n>Price}" />
+                    </Column>
+                    <Column width="80px" id="flaggedColumn" demandPopin="true" vAlign="Middle"/>
+                </columns>
+                <items>
+                    <ColumnListItem id="itemList">
+                        <cells>
+                            <Text id="content1" text="{mainModel>Name}" />
+                            <Text id="content2" text="{mainModel>Description}" />
+                            <Text id="content3" 
+                                text="{
+                                    path: 'mainModel>ReleaseDate',
+                                    formatter: '.formatter.formatDate'}" />
+                            <ObjectNumber 
+                                id="content4" 
+                                number="{mainModel>Price}"
+                                state="{
+                                    path: 'mainModel>Price',
+                                    formatter: '.formatter.priceState'
+                                }"
+                                unit="{mainModel>Currency}"/>
+                            <ToggleButton
+                                id="flaggedButton"
+                                tooltip="{i18n>flaggedTooltip}"
+                                icon="sap-icon://flag"
+                                pressed="{
+                                    path: 'mainModel>Flagged',
+                                    type: '.types.flagged'
+                                }"
+                                class="sapUiMediumMarginBeginEnd"/>                                
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
     </Page>
 </mvc:View>

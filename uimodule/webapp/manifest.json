@@ -1,5 +1,5 @@
 {
-  "_version": "1.12.0",
+  "_version": "1.40.0",
   "sap.app": {
     "id": "acc.myproject",
     "type": "application",
@@ -12,7 +12,19 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap-ux/fiori-freestyle-writer:basic",
-      "version": "0.11.15"
+      "version": "0.11.15",
+      "toolsId": "ca50ea9f-8594-4a5d-a91e-4f94e2f384f1"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/v2/northwind/northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
     }
   },
   "sap.ui": {
@@ -34,10 +46,16 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.60.0",
+      "minUI5Version": "1.102.1",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
       }
     },
     "contentDensities": {
@@ -50,6 +68,11 @@
         "settings": {
           "bundleName": "acc.myproject.i18n.i18n"
         }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
       }
     },
     "resources": {
@@ -60,39 +83,39 @@
       ]
     },
     "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "viewType": "XML",
-        "async": true,
-        "viewPath": "acc.myproject.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "clearControlAggregation": false
-      },
-      "routes": [
-        {
-          "name": "RouteMainView",
-          "pattern": ":?query:",
-          "target": [
-            "TargetMainView"
-          ]
-        }
-      ],
-      "targets": {
-        "TargetMainView": {
+        "config": {
+          "routerClass": "sap.m.routing.Router",
           "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "MainView",
-          "viewName": "MainView"
+          "async": true,
+          "viewPath": "acc.myproject.view",
+          "controlAggregation": "pages",
+          "controlId": "app",
+          "clearControlAggregation": false
+        },
+        "routes": [
+          {
+            "name": "RouteMainView",
+            "pattern": ":?query:",
+            "target": [
+              "TargetMainView"
+            ]
+          }
+        ],
+        "targets": {
+          "TargetMainView": {
+            "viewType": "XML",
+            "transition": "slide",
+            "clearControlAggregation": false,
+            "viewId": "MainView",
+            "viewName": "MainView"
+          }
         }
+      },
+      "rootView": {
+        "viewName": "acc.myproject.view.App",
+        "type": "XML",
+        "async": true,
+        "id": "App"
       }
-    },
-    "rootView": {
-      "viewName": "acc.myproject.view.App",
-      "type": "XML",
-      "async": true,
-      "id": "App"
     }
-  }
 }

@@ -1,10 +1,15 @@
-window.suite = function () {
-    "use strict";
+/* global window, parent, location */
 
-    const oSuite = new parent.jsUnitTestSuite(),
-        sContextPath = location.pathname.substring(0, location.pathname.lastIndexOf("/") + 1);
+// eslint-disable-next-line sap-no-global-define
+window.suite = function() {
+	"use strict";
 
-    oSuite.addTestPage(`${sContextPath}integration/opaTests.qunit.html`);
+	// eslint-disable-next-line
+	var oSuite = new parent.jsUnitTestSuite(),
+		sContextPath = location.pathname.substring(0, location.pathname.lastIndexOf("/") + 1);
 
-    return oSuite;
+	oSuite.addTestPage(sContextPath + "unit/unitTests.qunit.html");
+	oSuite.addTestPage(sContextPath + "integration/opaTests.qunit.html");
+
+	return oSuite;
 };

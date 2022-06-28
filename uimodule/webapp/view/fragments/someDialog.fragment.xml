@@ -1,0 +1,21 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.core">
+	<Dialog id="someDialog" title="I am a Dialog!" state="Information">
+		<VBox>
+			<Text
+				class="sapUiSmallMarginBegin sapUiSmallMarginTop"
+				renderWhitespace="false"
+				text="Hello friend!"
+				textAlign="Begin"
+				textDirection="Inherit"
+				wrapping="true"
+				wrappingType="Normal">
+			</Text>
+		</VBox>
+		<endButton>
+			<Button
+				text="Close"
+				press=".onClose">
+			</Button>
+		</endButton>
+	</Dialog>
+</c:FragmentDefinition>

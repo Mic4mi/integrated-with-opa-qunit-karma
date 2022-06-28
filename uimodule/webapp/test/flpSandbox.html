@@ -43,9 +43,9 @@
                 }
             },
             applications: {
-                "accmyproject-tile": {
-                    title: "Title of acc.myproject",
-                    description: "Description of acc.myproject",
+                "accmyproject-display": {
+                    title: "Simple project for testing",
+                    description: "A Fiori application.",
                     additionalInformation: "SAPUI5.Component=acc.myproject",
                     applicationType: "URL",
                     url: "../"
@@ -54,11 +54,11 @@
         };
     </script>
 
-    <script src="https://sapui5.hana.ondemand.com/test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
+    <script src="../test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
     <!-- Bootstrap the UI5 core library -->
     <script id="sap-ui-bootstrap"
-        src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
-        data-sap-ui-libs="sap.m,sap.ui.core"
+        src="../resources/sap-ui-core.js"
+        data-sap-ui-libs="sap.m,sap.ui.core,sap.f,sap.suite.ui.generic.template,sap.ui.comp,sap.ui.generic.app,sap.ui.table,sap.ushell"
         data-sap-ui-async="true"
         data-sap-ui-preload="async"
         data-sap-ui-theme="sap_fiori_3"
@@ -66,6 +66,8 @@
         data-sap-ui-language="en"
         data-sap-ui-resourceroots='{"acc.myproject": "../"}'
         data-sap-ui-frameOptions="allow"> // NON-SECURE setting for testing environment
+        </script>
+        <script id="locate-reuse-libs" src="../utils/locate-reuse-libs.js" data-sap-ui-manifest-uri="../manifest.json">
         </script>
 </head>
 

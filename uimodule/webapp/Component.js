@@ -1,15 +1,14 @@
-sap.ui.define(
-    ["sap/ui/core/UIComponent", "sap/ui/Device", "acc/myproject/model/models"],
-    /**
-     * @param {typeof sap.ui.core.UIComponent} UIComponent
-     * @param {typeof sap.ui.Device} Device
-     */
+sap.ui.define([
+    "sap/ui/core/UIComponent",
+    "sap/ui/Device",
+    "acc/myproject/model/models"
+],
     function (UIComponent, Device, models) {
         "use strict";
 
         return UIComponent.extend("acc.myproject.Component", {
             metadata: {
-                manifest: "json",
+                manifest: "json"
             },
 
             /**
@@ -21,12 +20,15 @@ sap.ui.define(
                 // call the base component's init function
                 UIComponent.prototype.init.apply(this, arguments);
 
+                // allow saving values to the OData model
+                this.getModel().setDefaultBindingMode("TwoWay");
+
                 // enable routing
                 this.getRouter().initialize();
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
-            },
+            }
         });
     }
 );

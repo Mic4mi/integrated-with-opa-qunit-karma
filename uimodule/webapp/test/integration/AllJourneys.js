@@ -1,5 +1,5 @@
 sap.ui.define(
-    ["sap/ui/test/Opa5", "./arrangements/Startup", "./MainJourney", "acc/myproject/test/unit/model/formatter"],
+    ["sap/ui/test/Opa5", "./arrangements/Startup", "./MainJourney"],
     /**
      * @param {typeof sap.ui.test.Opa5} Opa5
      */
