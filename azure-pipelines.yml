@@ -20,7 +20,7 @@ steps:
   displayName: 'npm install and build'
 
 - script: |
-    karma start
+    npm test
   continueOnError: true
   displayName: 'Run karma test'
   
