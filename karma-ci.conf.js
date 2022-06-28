@@ -3,6 +3,35 @@ module.exports = function (config) {
 
     require("./karma.conf")(config);
     config.set({
+        preprocessors: {
+            // source files, that you wanna generate coverage for
+            // do not include tests or libraries
+            // (these files will be instrumented by Istanbul)
+            "{uimodule/webapp,uimodule/webapp/!(test)}/*.js": ['coverage']
+        },
+
+        coverageReporter: {
+            includeAllSources: true,
+            reporters: [
+                {
+                    type: 'html',
+                    dir: 'coverage/'
+                },
+                {
+                    type: "text"
+                }
+            ]
+        },
+
+        check: {
+            each: {
+                statements: 100,
+                branches: 100,
+                functions: 100,
+                lines: 100
+            }
+        },
+
         // test results reporter to use
         // possible values: "dots", "progress", "coverage"
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -14,31 +43,6 @@ module.exports = function (config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: true,
-
-        preprocessors: {
-            // source files, that you wanna generate coverage for
-            // do not include tests or libraries
-            // (these files will be instrumented by Istanbul)
-            "{uimodule/webapp,uimodule/webapp/!(test)}/*.js": ['coverage']
-        },
-
-        coverageReporter: [
-            {
-                type: 'html',
-                dir: 'coverage/'
-            },
-            {
-                type: "text"
-            }
-        ],
-        check: {
-            each: {
-                statements: 100,
-                branches: 100,
-                functions: 100,
-                lines: 100
-            }
-        }
+        singleRun: true
     });
 };
