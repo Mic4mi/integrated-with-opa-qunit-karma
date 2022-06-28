@@ -12,7 +12,8 @@
       "Main"
     ],
     "opa5Journeys": [
-      "Main"
+      "Main",
+      "UnitTests"
     ],
     "uimodules": [
       "uimodule"

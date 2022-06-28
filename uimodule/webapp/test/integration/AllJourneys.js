@@ -1,5 +1,13 @@
 sap.ui.define(
-    ["sap/ui/test/Opa5", "./arrangements/Startup", "./MainJourney", "acc/myproject/test/unit/model/formatter"],
+    // Cargar los test unitarios en este file! :)
+    [
+        "sap/ui/test/Opa5",
+        "./arrangements/Startup",
+        "./MainJourney",
+        // "./NavigationJourney",
+        "acc/myproject/test/unit/model/formatter",
+        "acc/myproject/test/unit/model/FlaggedType"
+    ],
     /**
      * @param {typeof sap.ui.test.Opa5} Opa5
      */

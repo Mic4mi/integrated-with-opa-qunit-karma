@@ -1,16 +1,24 @@
 sap.ui.define(
-    ["sap/ui/core/mvc/Controller", "sap/ui/core/routing/History", "sap/ui/core/UIComponent", "acc/myproject/model/formatter"],
+    [
+        "sap/ui/core/mvc/Controller",
+        "sap/ui/core/routing/History",
+        "sap/ui/core/UIComponent",
+        "acc/myproject/model/formatter",
+        "acc/myproject/model/FlaggedType",
+    ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      * @param {typeof sap.ui.core.routing.History} History
      * @param {typeof sap.ui.core.UIComponent} UIComponent
      */
-    function (Controller, History, UIComponent, formatter) {
+    function (Controller, History, UIComponent, formatter, FlaggedType) {
         "use strict";
 
         return Controller.extend("acc.myproject.controller.BaseController", {
             formatter: formatter,
-
+            types: {
+                flagged: new FlaggedType()
+            },
             /**
              * Convenience method for getting the view model by name in every controller of the application.
              * @public
